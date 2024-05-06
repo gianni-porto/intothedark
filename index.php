@@ -4,7 +4,7 @@
 <div class="spacer"></div>
 
 
-<main>
+<main id="main-content">
   <div class="grid">
     <div class="col-100">
 
@@ -46,25 +46,25 @@
 
         
           
-          <article class="col-33 fade-up">
+          <article class="col-33 fade-up text-white">
 
-            <a href="<?php the_permalink();  ?>" class="text-white">
+            
 
               <?php if ($intothedark_counter == 0) { ?>
                  
-                 <?php the_post_thumbnail('image-small', array('class' => 'img-res mb-2', 'alt' => get_the_title())); ?>
-                 <h3> <?php the_title();?> </h3>
+                 <?php the_post_thumbnail('intothedark__image-small', array('class' => 'img-res mb-2', 'alt' => get_the_title())); ?>
+                 <a  href="<?php the_permalink();  ?>"><h3> <?php the_title();?> </h3></a>
                  <p><?php the_excerpt();?></p>
               
               <?php }else if ($intothedark_counter == 1) { ?>
               
                  
-                 <h3> <?php the_title();?> </h3>
-                 <?php the_post_thumbnail('image-small', array('class' => 'img-res mb-2', 'alt' => get_the_title())); ?>
+                <a  href="<?php the_permalink();  ?>"><h3> <?php the_title();?> </h3></a>
+                 <?php the_post_thumbnail('intothedark__image-small', array('class' => 'img-res mb-2', 'alt' => get_the_title())); ?>
                  <p><?php the_excerpt();?></p>
               
               <?php } ?>
-            </a>
+            
 
             <?php the_category(', '); ?>
 

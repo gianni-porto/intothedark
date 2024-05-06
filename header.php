@@ -17,36 +17,47 @@
 
   <?php wp_body_open();  ?>
 
-  
-    
+  <a class="skip-link screen-reader-text" href="#main-content"><?php _e( 'Skip to content', 'intothedark' ); ?></a>
 
+  
     <header class="header-container" id="top">
       <div class="header">
         <?php 
 
-          $intothedark_logo_id = get_theme_mod( 'custom_logo' );
-          $intothedark_logo = wp_get_attachment_image_src( $intothedark_logo_id , 'full' );
+          
         
-          if(has_custom_logo()){ ?>
+            $intothedark_logo_id = get_theme_mod( 'custom_logo' );
+            $intothedark_logo_url = wp_get_attachment_image_url( $intothedark_logo_id, 'full' );
+            
+        
+          if ( has_custom_logo() ) { ?>
+            
+            <a class="header__logo" href="<?php echo esc_url(home_url()); ?>"><img class="header__logo-img" src="<?php echo esc_url( $intothedark_logo_url); ?>" alt="<?php echo esc_url( get_bloginfo( 'name' )); ?>"></a>
+        <?php } else { ?>
 
-          <a href="<?php echo esc_url(home_url()); ?>" class="header__logo">
-            <img src="<?php echo esc_url( $intothedark_logo[0] ); ?>" alt="<?php echo esc_url( get_bloginfo( 'name' )); ?>"  class="custom-logo">
-          </a>
-
-        <?php } else{ ?>
-
-          <a class="header__logo" href="<?php echo esc_url(home_url()); ?>"><?php bloginfo('title'); ?> </a>
+          <a class="header__logo" href="<?php echo esc_url(home_url()); ?>"><?php echo esc_html(get_bloginfo('name')); ?> </a>
         
         <?php } ?>
 
-        <?php
-        wp_nav_menu(
-          array(
-            'theme_location' => 'header',
-            'container' => false,
-            'items_wrap' => '<ul class="header__menu">%3$s</ul>'
-          )
-        );
+        <?php 
+          wp_nav_menu(
+            array(
+              'theme_location' => 'header',
+              'container' => false,
+              'items_wrap' => '<ul class="header__menu">%3$s</ul>',
+              'fallback_cb'   => 'wp_page_menu', //default menu
+              'fallback_cb'   => function() {
+                wp_page_menu(
+                  array(
+                      'menu_class' => 'header__menu', 
+                      'show_home'  => true,           
+                      'menu_id'    => 'header-menu',  
+                  ),
+                
+              );
+          },
+            )
+          );
         ?>
 
         <div class="header__hamburger">

@@ -2,7 +2,7 @@
 
 <div class="spacer"></div>
 
-<main class="grid grid__center">
+<main class="grid grid__center" id="main-content">
 
   <div class="col-100">
 
@@ -18,9 +18,12 @@
             <?php the_title(); ?>
           </h1>
 
-          <?php the_post_thumbnail('image-big', array('class' => 'img-res mb-2', 'alt' => get_the_title()));  ?>
+          <?php the_post_thumbnail('intothedark__image-big', array('class' => 'img-res mb-2', 'alt' => get_the_title()));  ?>
 
-          <?php the_content(); ?>
+          <div class="text-content">
+            <?php the_content(); ?>
+          </div>
+          
 
         </article>
 

@@ -4,9 +4,9 @@ Theme URI: https://github.com/gianni-porto/intothedark
 Author: Gianni Porto
 Author URI: https://www.facebook.com/profile.php?id=100094272767084
 Description:  Into The Dark is an elegant and flexible WordPress theme designed with a sleek dark style and captivating animations. A custom template featuring a transparent menu, customizable button in the transparent menu template, and a three-column footer widget area.
-Version: 1.0
+Version: 1.0.4
 Requires at least: 5.0
-Tags: blog, featured image background, elegant, dark style, custom template, scrolltotp button, custom button, custom bacground
+Tags:  blog ,custom-logo, feature-images, theme-options, translation-ready, custom-background, footer-widgets,photography,  portfolio 
 Domain Path: 	/languages
 Tested up to: 5.4
 Requires PHP: 7.0
@@ -18,10 +18,11 @@ Use it to make something cool, have fun, and share what you've learned with othe
 */
 
 /* ! Reset */
-body, html{ font-family: Arial, Helvetica, sans-serif; font-size: 16px; box-sizing: border-box;margin: 0;padding: 0;}*,*:before,*:after{ box-sizing: border-box; }h1,h2,h3,h4,h5,h6, p, ol, ul{padding: 0;}ol,ul{list-style-type: none;list-style-position: inside;}img{height: auto;}h1{font-size: 4rem;} h2{font-size: 3rem;} h3{font-size: 2rem;} h4{font-size: 1rem;} h5{font-size: 0.8rem;} h6{font-size: 0.6rem;}a{text-decoration:none;color:#f75e47}
+body, html{ font-family: Arial, Helvetica, sans-serif; font-size: 16px; box-sizing: border-box;margin: 0;padding: 0;}*,*:before,*:after{ box-sizing: border-box; }h1,h2,h3,h4,h5,h6, p, ol, ul{padding: 0;}ol,ul{list-style-type: none;list-style-position: inside;}img{height: auto;}h1{font-size: 4rem;} h2{font-size: 3rem;} h3{font-size: 2rem;} h4{font-size: 1rem;} h5{font-size: 0.8rem;} h6{font-size: 0.6rem;}a{color: #ddd;}
 .spacer{height: 120px;}
-*:focus{outline: none;}
+
 hr{border: 0;height: 1px;background: #fff;}
+
 
 
 /* ! Montserrat font */
@@ -59,13 +60,18 @@ hr{border: 0;height: 1px;background: #fff;}
 :root{
   --menu-bg: #111;
   --menu-text: #fff;
+  --link: #D3E0FF;
+  --hover: #F0F8FF;  
 }
 
 /* ! Base Style */
 
 body{font-family: 'Montserrat', sans-serif; font-size: 16px;background: #222;color: #fff;} 
-a{color:#D3D3D3;font-weight: 300;}
+a{color: var(--link);font-weight: 300;transition: all .3s cubic-bezier(.215, .61, .355, 1);text-decoration: none;}
+a:focus,a:hover{color: var(--hover);}
+
 li{margin-bottom: 1rem;}
+
 
 .wrap{overflow: hidden;min-height: 100vh;width: 100%;}
 
@@ -87,7 +93,8 @@ li{margin-bottom: 1rem;}
 
 @media (max-width: 768px) {
   .cover{justify-content: center;min-height: 60vh;}
-  .cover__content{margin: 0;}
+  .cover__content{margin: 0;padding-top: 30px;}
+  
 }
 
 /* ! Title System */
@@ -127,39 +134,44 @@ h1,h2,h3,h4,p,ol,ul{margin-bottom: 1rem;-ms-word-wrap: break-word;word-wrap: bre
 .logged-in .header-container{top: 30px;}
 
 .header{display: flex;justify-content: space-between;align-items: center; width: 100%;max-width: 1650px;margin: 0 auto;padding: 0 3%;}
-.header a{color:var(--menu-text);display: block;padding: 10px;margin-left: 5px;}
+.header a{display: block;padding: 10px;margin-left: 5px;color:var(--menu-text);}
+
+
 .header__menu{margin: 0;}
 
 .header__menu li{display: inline-block;position: relative;margin:0;padding: 0;}
-.header__menu li ul{position: absolute;left: 0;min-width: 100%;background:var(--menu-bg);display: none;visibility: hidden;box-shadow: 0 10px 10px rgba(0,0,0,.09);}
-.header__menu li ul li{width: 100%;}
-.header__menu li:hover > ul{display: block;visibility: visible;}
+
 
 .header__menu li a{position: relative;}
-  .header__menu > li.menu-item-has-children > a:after{content:' ';width: 16px;height: 16px;position: absolute;top: 35%;right: -10px;background-size: 100%;background-image: url(assets/icons/chevron-down-outline.svg);filter: invert(1);}
+.header__menu > li.menu-item-has-children > a:after{content:' ';width: 16px;height: 16px;position: absolute;top: 35%;right: -10px;background-size: 100%;background-image: url(assets/icons/chevron-down-outline.svg);filter: invert(1);}
+.header__menu li > ul{position: absolute;left: 0;width: 180px;background:var(--menu-bg);visibility:hidden;box-shadow: 0 10px 10px rgba(0,0,0,.09);display: none;}
+.header__menu li ul li{width: 100%;}
+.header__menu li:focus-within >ul,
+.header__menu li:hover >ul{display: block;visibility: visible;}
 
 .header__logo{font-weight: bold;text-transform: uppercase;display: flex;}
-img.custom-logo{height: 40px;display: flex;}
+.header__logo-img{height: 40px;}
 @media (max-width: 768px) {
-  img.custom-logo{height: 35px;}
+  .header__logo-img{height: 35px;}
 
 }
 
 
+
+
 .header__hamburger{display: none;}
 
-@media (max-width: 768px) {
+@media (max-width: 998px) {
   .header{margin: 10px auto;}
   .header__hamburger{display: block;;width: 40px;height: 35px;right:5px;top:50%;transform: translateY(-50%);position: absolute;}
   .header__hamburger span{width: 33px;height: 2px;background: var(--menu-text);margin-top: 8px;display: block;transition: all .15s cubic-bezier(.215, .61, .355, 1);}
   .header__hamburger span:nth-child(2){width: 25px;}
-  .header__menu{position: absolute;top:59px;left: 0;width: 100%;background:var(--menu-bg);height: 100vh;overflow: hidden;transform: translateX(-100%); transition: all .5s cubic-bezier(.215, .61, .355, 1);font-size: 1.2rem;}
-
+  .header__menu{position: absolute;top: 79px;left: 0;width: 100%;background:var(--menu-bg);height: 100vh;overflow: hidden;transform: translateX(-100%); transition: all .5s cubic-bezier(.215, .61, .355, 1);font-size: 1.2rem;}
+  .header__logo + .header__menu{top:59px};
   
-
-  .header__menu > li.menu-item-has-children > a:after{right: 10px;} 
-
+  .header__menu ul li{margin-bottom: 10px;}
   .header__menu li ul{position: relative;width: 100%;padding-left: 20px;}
+  .header__menu > li.menu-item-has-children > a:after{right: 10px;} 
 
   .menu-open .header__menu{transform: translateX(0);}
   .menu-open{overflow: hidden;}
@@ -174,19 +186,18 @@ img.custom-logo{height: 40px;display: flex;}
 }
 
 
-@media (min-width: 768px) {
+@media (min-width: 998px) {
   
   .header-container{padding: 10px 0;}  
  
 /* ! Menu Transparent*/
-  .page-template-menu-transparent .header__logo img,
-  .single.has-thumbnail .header__logo img{height: 54px;}
+  .page-template-menu-transparent .header__logo-img,
+  .single.has-thumbnail .header__logo-img{height: 54px;}
   .page-template-menu-transparent .header-container,
   .single.has-thumbnail .header-container{padding: 4%;background: transparent;transition: all .3s cubic-bezier(.215, .61, .355, 1);}
-  .page-template-menu-transparent .header-container .header > .header__menu > li > a,
-  .single.has-thumbnail .header-container .header > .header__menu > li > a{color: #fff;}
-  .page-template-menu-transparent .header__logo img,
-  .single.has-thumbnail .header__logo img{filter: invert(0);}
+  
+  .page-template-menu-transparent .header__logo-img,
+  .single.has-thumbnail .header__logo-img{filter: invert(0);}
   .page-template-menu-transparent .header__hamburger span,
   .single.has-thumbnail .header__hamburger span{background: #fff;}
 
@@ -194,8 +205,8 @@ img.custom-logo{height: 40px;display: flex;}
   .scroll-down.page-template-menu-transparent .header-container,
   .scroll-down.single.has-thumbnail .header-container{background: rgba(0,0,0,.7);padding: 1%;}
 
-  .scroll-down.page-template-menu-transparent .header__logo img,
-  .scroll-down.single.has-thumbnail .header__logo img{height: 35px;}
+  .scroll-down.page-template-menu-transparent .header__logo-img,
+  .scroll-down.single.has-thumbnail .header__logo-img{height: 35px;}
 }
 
 
@@ -233,8 +244,10 @@ img.custom-logo{height: 40px;display: flex;}
 
 .footer{background: var(--menu-bg);}
 
+
+
 @media (max-width: 768px) {
-  .footer .col-33{align-items: center;margin-top: 4%;}
+  .footer .col-33{text-align: center;;margin-top: 4%;}
 }
 
 .privacy{text-align: right;}
@@ -477,6 +490,51 @@ textarea { padding: 15px; width: 100%; background: #fff; -webkit-appearance: non
 
 
 .form-submit input[type=submit]{cursor: pointer;}
+
+
+/* Accessibility */
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+  /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+/* ! Accessibility */
+
+.screen-reader-text:focus {
+  background-color: var(--menu-bg);
+  color: var(--menu-text);
+  display: block;
+  font-size: .9rem;
+  font-weight: bold;
+  height: auto;
+  right: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+  
+}
+
+
+#main-content[tabindex="-1"]:focus {
+  outline: 0;
+}
+
+
+.text-content a,
+.comment-content a{text-decoration: underline;}
 
 
 

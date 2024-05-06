@@ -28,22 +28,21 @@ function intothedark_setup() {
   // Editor style
   add_editor_style( 'editor-style.css' );
 
-  //custo mologo
-  // logo
+  //custom logo
   $intothedark_logo_defaults = array(
     'height'               => 100,
     'width'                => 400,
     'flex-height'          => true,
     'flex-width'           => true,
     'header-text'          => array( 'site-title', 'site-description' ),
-    'unlink-homepage-logo' => true, 
+    'unlink-homepage-logo' => true,
   );
   add_theme_support( 'custom-logo', $intothedark_logo_defaults );
-  
 
+  
   //image size
-  add_image_size('image-small',350,270,true);
-  add_image_size('image-big',1400,900,true);
+  add_image_size('intothedark__image-small',350,270,true);
+  add_image_size('intothedark__image-big',1400,900,true);
 
   //Page excerpt
   add_post_type_support('page','excerpt');

@@ -8,6 +8,7 @@ hamburger.addEventListener("click", function () {
 });
 
 
+
 //SCroll Animation
 ScrollTrigger.batch(".fade-up", {
     start: "top bottom",
@@ -63,3 +64,6 @@ gsap.to(".cover__bg", {
       scrub: true
   }
 });
+
+
+

@@ -21,7 +21,7 @@
 <?php }?>
 
 
-<main class="grid grid__center">
+<main class="grid grid__center" id="main-content">
 
   <div class="col-70">
 
@@ -34,13 +34,19 @@
         <article id="post-<?php the_ID(); ?>" <?php post_class();  ?>>
 
          
-          <div class="fade-in mb-2 clearfix <?php if (has_post_thumbnail()) echo 'thumbnail'; ?>"> <?php the_content();  ?> </div>
+          <div class="fade-in mb-2  text-content clearfix <?php if (has_post_thumbnail()) echo 'thumbnail'; ?>"> <?php the_content();  ?> </div>
           
           <div class="cat">
             <p class="fade-in">
                 <span class="icon-text-container date">
                     <img src="<?php echo esc_url(get_template_directory_uri()) . '/assets/icons/calendar-clear-outline.svg'; ?>" alt="<?php _e('calendar', 'intothedark'); ?>" class="icon-white icon-small">
-                    <?php the_time('j M Y '); ?>
+                    
+                    <?php 
+                      $date_format = get_option( 'date_format' );
+                      $current_date = the_date( $date_format ); 
+                      echo $current_date;
+                    ?>
+                
                 </span>
                 <span class="icon-text-container tag">
                     <img src="<?php echo esc_url(get_template_directory_uri()) . '/assets/icons/add-circle-outline.svg'; ?>" alt="<?php _e('category', 'intothedark'); ?>" class="icon-white icon-small">

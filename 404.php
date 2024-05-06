@@ -2,7 +2,7 @@
 
 <div class="spacer"></div>
 
-<main class="grid grid__center">
+<main class="grid grid__center" id="main-content">
 
   <article class="col-80">
 

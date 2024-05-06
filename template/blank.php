@@ -11,7 +11,7 @@
 <?php get_header(); ?>
 
 
-<main class="grid grid__center">
+<main class="grid grid__center" id="main-content">
 
   <div class="col-100">
 

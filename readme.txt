@@ -59,14 +59,6 @@ Ionicons - https://ionic.io/ionicons
 License: Distributed under the terms of the SIL OFL License 1.1 (fonts), MIT License (code), and CC BY 3.0 License (documentation)
 Copyright: Ionic, https://ionic.io
 
-Image for theme screenshot, Copyright Bango Renders
-License: CC0 1.0 Universal (CC0 1.0)
-Source: https://stocksnap.io/photo/3d-abstract-QGESMCN4IK
 
-Image for theme screenshot, Copyright Rodrigo Soares
-License: CC0 1.0 Universal (CC0 1.0)
-Source: https://stocksnap.io/photo/mountain-highland-ZWK47EIMWV
-
-
-Everything else used in this theme has been created by me (Andrea Marchetti), especially for the Into The Dark theme and is distributed under GPL v3 license.
+Everything else used in this theme has been created by me, especially for the Into The Dark theme and is distributed under GPL v3 license.
 
