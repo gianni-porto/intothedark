@@ -7,7 +7,7 @@
 --------------------------------------------------------------------------------------------------- */
 function intothedark_add_customizer_settings($wp_customize) {
     $wp_customize->add_section('intothedark_button_section', array(
-        'title'    => __('Button settings', 'intothedark'),
+        'title'    => __('Button settings (in menu transapent)', 'intothedark'),
         'priority' => 30,
     ));
 //button Settings
@@ -44,7 +44,7 @@ function intothedark_add_customizer_settings($wp_customize) {
  ));
 
     $wp_customize->add_setting('intothedark_show_scroll_to_top', array(
-        'default'   => true,
+        'default'   => false,
         'transport' => 'refresh',
         'sanitize_callback' => 'sanitize_text_field',
     ));

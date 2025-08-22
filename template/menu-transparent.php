@@ -29,7 +29,7 @@
 
 </div>
 
-<main class="grid grid__center" id="main-content">
+<main class="grid grid__center" id="main-content" role="main" tabindex="-1">
 
   <div class="col-100">
 

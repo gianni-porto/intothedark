@@ -4,8 +4,8 @@
 <div class="spacer"></div>
 
 
-<main id="main-content">
-  <div class="grid">
+<main id="main-content" role="main" tabindex="-1">
+  <div class="grid grid__center">
     <div class="col-100">
 
       <?php if (is_search()) { ?>

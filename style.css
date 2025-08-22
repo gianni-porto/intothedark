@@ -4,7 +4,7 @@ Theme URI: https://github.com/gianni-porto/intothedark
 Author: Gianni Porto
 Author URI: https://www.facebook.com/profile.php?id=100094272767084
 Description:  Into The Dark is an elegant and flexible WordPress theme designed with a sleek dark style and captivating animations. A custom template featuring a transparent menu, customizable button in the transparent menu template, and a three-column footer widget area.
-Version: 1.0.4
+Version: 2.0
 Requires at least: 5.0
 Tags:  blog ,custom-logo, feature-images, theme-options, translation-ready, custom-background, footer-widgets,photography,  portfolio 
 Domain Path: 	/languages
@@ -17,43 +17,14 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 
+
+@import url('assets/fonts.css'); /*montserrat fonts*/
+
 /* ! Reset */
 body, html{ font-family: Arial, Helvetica, sans-serif; font-size: 16px; box-sizing: border-box;margin: 0;padding: 0;}*,*:before,*:after{ box-sizing: border-box; }h1,h2,h3,h4,h5,h6, p, ol, ul{padding: 0;}ol,ul{list-style-type: none;list-style-position: inside;}img{height: auto;}h1{font-size: 4rem;} h2{font-size: 3rem;} h3{font-size: 2rem;} h4{font-size: 1rem;} h5{font-size: 0.8rem;} h6{font-size: 0.6rem;}a{color: #ddd;}
 .spacer{height: 120px;}
 
 hr{border: 0;height: 1px;background: #fff;}
-
-
-
-/* ! Montserrat font */
-
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Montserrat Regular'), local('Montserrat-Regular'),
-    url('assets/fonts/Montserrat-Regular.ttf') format('trutype');
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Montserrat Bold'), local('Montserrat-Bold'),
-    url('assets/fonts/Montserrat-Bold.ttf') format('trutype');
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Montserrat Light'), local('Montserrat-ExtraBold'),
-    url('assets/fonts/Montserrat-Light.ttf') format('trutype');
-  
-}
-
-
-
 
 
 
@@ -115,21 +86,33 @@ h1,h2,h3,h4,p,ol,ul{margin-bottom: 1rem;-ms-word-wrap: break-word;word-wrap: bre
 
 
 /* ! Button System */
+
+
+.wp-block-button__link{text-decoration: none !important;transition: all .3 cubic-bezier(0.39, 0.575, 0.565, 1);}
+.wp-block-button__link:hover,
+.wp-block-button__link:hover.is-style-outline{filter: brightness(95%); letter-spacing: 0.5px;}
+    
 .button,
-.wp-block-button__link,
+.wp-block-button.button-intothedark .wp-block-button__link,
 .form-submit input[type=submit]{font-size: 1rem;background: transparent; border: 1px solid #fffff0;color: #fffff0;padding: 15px 25px;display: inline-block;border-radius: 4px;text-transform: uppercase;font-weight: bold;transition: all .5s cubic-bezier(.215, .61, .355, 1);}
 .button:hover,
-.wp-block-button__link:hover,
+.wp-block-button.button-intothedark .wp-block-button__link:hover,
 .form-submit input[type=submit]:hover{background: #fffff0;color: #111;}
 
-.button__reverse{background:#111;color: #fffff0;border:none;position: relative;}
-.button__reverse:hover{background: #fffff0;color: #111;}
+
+.button__reverse,
+.wp-block-button.button-intothedark__reverse .wp-block-button__link{background:#111;color: #fffff0;border:none;position: relative;}
+.button__reverse:hover,
+.wp-block-button.button-intothedark__reverse .wp-block-button__link:hover{background: #fffff0;color: #111;}
+
+
+
 
 
 
 /* ! Header */
 /*----------------------------------------------------------------------------------- */
-.header-container{background: var(--menu-bg);position: fixed;top: 0;left: 0;z-index: 999;width: 100%;}
+.header-container{background: rgba(17, 17, 17, 0.85);position: fixed;top: 0;left: 0;z-index: 999;width: 100%;}
 
 .logged-in .header-container{top: 30px;}
 
@@ -167,7 +150,7 @@ h1,h2,h3,h4,p,ol,ul{margin-bottom: 1rem;-ms-word-wrap: break-word;word-wrap: bre
   .header__hamburger span{width: 33px;height: 2px;background: var(--menu-text);margin-top: 8px;display: block;transition: all .15s cubic-bezier(.215, .61, .355, 1);}
   .header__hamburger span:nth-child(2){width: 25px;}
   .header__menu{position: absolute;top: 79px;left: 0;width: 100%;background:var(--menu-bg);height: 100vh;overflow: hidden;transform: translateX(-100%); transition: all .5s cubic-bezier(.215, .61, .355, 1);font-size: 1.2rem;}
-  .header__logo + .header__menu{top:59px};
+  .header__logo + .header__menu{top:59px;}
   
   .header__menu ul li{margin-bottom: 10px;}
   .header__menu li ul{position: relative;width: 100%;padding-left: 20px;}
@@ -192,23 +175,52 @@ h1,h2,h3,h4,p,ol,ul{margin-bottom: 1rem;-ms-word-wrap: break-word;word-wrap: bre
  
 /* ! Menu Transparent*/
   .page-template-menu-transparent .header__logo-img,
+  .page-template-menu-transparentblank .header__logo-img,
   .single.has-thumbnail .header__logo-img{height: 54px;}
   .page-template-menu-transparent .header-container,
+  .page-template-menu-transparentblank .header-container,
   .single.has-thumbnail .header-container{padding: 4%;background: transparent;transition: all .3s cubic-bezier(.215, .61, .355, 1);}
   
   .page-template-menu-transparent .header__logo-img,
+  .page-template-menu-transparentblank .header__logo-img,
   .single.has-thumbnail .header__logo-img{filter: invert(0);}
   .page-template-menu-transparent .header__hamburger span,
   .single.has-thumbnail .header__hamburger span{background: #fff;}
 
   
   .scroll-down.page-template-menu-transparent .header-container,
-  .scroll-down.single.has-thumbnail .header-container{background: rgba(0,0,0,.7);padding: 1%;}
+  .scroll-down.page-template-menu-transparentblank .header-container,
+  .scroll-down.single.has-thumbnail .header-container{background: rgba(17, 17, 17, 0.85);padding: 1%;}
 
   .scroll-down.page-template-menu-transparent .header__logo-img,
+  .scroll-down.page-template-menu-transparentblank .header__logo-img,
   .scroll-down.single.has-thumbnail .header__logo-img{height: 35px;}
 }
 
+
+
+.page-template-menu-transparentblank .site-header {
+    position: relative !important;
+    z-index: 999;
+}
+
+.page-template-menu-transparentblank main#main-content {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+.page-template-menu-transparentblank .wp-block-cover:first-of-type {
+    margin-top: -60px !important; 
+}
+
+.page-template-menu-transparentblank .wp-block-cover.has-background-dim:before {
+    opacity: 0.3 !important; 
+}
+
+
+.page-template-menu-transparentblank .wp-block-cover:first-of-type .wp-block-cover__inner-container {
+    padding-top: 60px !important;
+}
 
 /* ! Index */
 /*----------------------------------------------------------------------------------- */
@@ -227,7 +239,7 @@ h1,h2,h3,h4,p,ol,ul{margin-bottom: 1rem;-ms-word-wrap: break-word;word-wrap: bre
 
 
 /*! Arrow in Button Reverse*/
-.button__reverse .arrow{position: absolute;left: 50%;transform: translateX(-50%) translateY(5px);transition: all .5s cubic-bezier(.215, .61, .355, 1);}
+.button__reverse .arrow{position: absolute;left: 50%;transform: translateX(-50%) translateY(7px);transition: all .5s cubic-bezier(.215, .61, .355, 1);}
 .button__reverse:hover .arrow{filter: invert(1); transform: translateY(8px) translateX(-50%);}
 
 /* ! Single */
@@ -253,13 +265,9 @@ h1,h2,h3,h4,p,ol,ul{margin-bottom: 1rem;-ms-word-wrap: break-word;word-wrap: bre
 .privacy{text-align: right;}
 
 
-.mini-footer p{font-size: 0.8rem;}
-.mini-footer .col-100{padding: 1% 0;}
-.mini-footer .col-20{padding: 0;}
 
 
-
-.scroll-to-top{position: fixed;bottom: 20px;right: 20px;font-size: 24px;opacity: 0;transition: all .5s cubic-bezier(.215, .61, .355, 1);background: #111;border-radius: 50px;}
+.scroll-to-top{position: fixed;bottom: 20px;right: 20px;font-size: 34px;opacity: 0;transition: all .5s cubic-bezier(.215, .61, .355, 1);background: #111;border-radius: 50%;width: 40px;height: 40px;display: flex;justify-content: center;align-items: center;z-index: 999;box-shadow: 0 4px 8px rgba(255, 255, 255, .2);}
 
 .scroll-down .scroll-to-top{opacity: 1;}
 
@@ -362,7 +370,7 @@ h1,h2,h3,h4,p,ol,ul{margin-bottom: 1rem;-ms-word-wrap: break-word;word-wrap: bre
 
 .font-normal{font-weight: 400;}
 .font-light{font-weight: 300;}
-.font-bolf{font-weight: 700;}
+.font-bold{font-weight: 700;}
 
 .video-res{width: 100%;height: 100%;overflow: hidden;}
 .video-res video{width: 100%;height: 100%;object-fit: cover;}
@@ -387,14 +395,58 @@ h1,h2,h3,h4,p,ol,ul{margin-bottom: 1rem;-ms-word-wrap: break-word;word-wrap: bre
 /*----------------------------------------------------------------------------------- */
 
 /*! Form Search*/
-.form-search input{border: 3px solid #ddd; border-radius: 3px;padding: 10px;color: #fff;font-size: 1rem;}
+/* .form-search input{border: 3px solid #ddd; border-radius: 3px;padding: 10px;color: #fff;font-size: 1rem;}
 .form-search input[type=submit], button{border: 3px solid #ddd; background: #ddd; border-radius: 3px;padding: 10px;}
 
 .form-search{width: 100%;border-bottom: 2px solid #fffff0;border-radius: 5px;}
 .form-search input{width: calc( 100% - 40px );border: none;background: transparent;}
 .form-search input::placeholder{color: #D3D3D3;}
 .form-search button{padding: 0;background: transparent;border: none;}
-.form-search img{width: 30px;margin-bottom: -8px;color: #fff;}
+.form-search img{width: 30px;margin-bottom: -8px;color: #fff;} */
+
+.form-search {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 8px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 18px;
+    margin: 0 auto;
+    max-width: 600px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.05);
+}
+
+/* campo input */
+.form-search input[type="text"] {
+    flex: 1;
+    padding: 10px 12px;
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 1rem;
+}
+
+/* placeholder */
+.form-search input::placeholder {
+    color: #aaa;
+}
+
+/* bottone */
+.form-search button {
+    padding: 0 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* icona */
+.form-search img {
+    width: 24px;
+    height: 24px;
+    filter: invert(100%);
+}
 
 
 
@@ -495,36 +547,18 @@ textarea { padding: 15px; width: 100%; background: #fff; -webkit-appearance: non
 /* Accessibility */
 /* Text meant only for screen readers. */
 .screen-reader-text {
-  border: 0;
-  clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute !important;
-  width: 1px;
-  word-wrap: normal !important;
-  /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+  position: absolute;
+  left: -9999px;
 }
 
-/* ! Accessibility */
-
 .screen-reader-text:focus {
-  background-color: var(--menu-bg);
-  color: var(--menu-text);
-  display: block;
-  font-size: .9rem;
-  font-weight: bold;
-  height: auto;
-  right: 5px;
-  line-height: normal;
-  padding: 15px 23px 14px;
-  text-decoration: none;
-  top: 5px;
-  width: auto;
-  z-index: 100000;
-  
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #000;
+  color: #fff;
+  padding: 10px;
+  z-index: 1000;
 }
 
 
