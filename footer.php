@@ -29,26 +29,10 @@
     </div>
     
     
-   
-
-    <div class="mini-footer">
-      <div class="grid grid__center">
-        <div class="col-20">
-          <hr>
-        </div>
-        <div class="col-100 fade-up">
-          <p class="m-0 text-center"><?php esc_html_e('Handcoded by ','intothedark'); ?><a href="/privacy-policy"><?php esc_html_e('Gianni Porto','intothedark'); ?></a></p>
-        </div>
-      </div>
-    </div>
-   
-   
-    
-    
   </footer>
 
 
-  <?php if (get_theme_mod('intothedark_show_scroll_to_top', true)) { echo '<a href="#top" class="scroll-to-top scroll-to"><img src="' . esc_url(get_template_directory_uri()) . '/assets/icons/chevron-up-outline.svg" alt="Scroll Top" class="icon-small icon-white"></a>'; } ?>
+  <?php if (get_theme_mod('intothedark_show_scroll_to_top', false)) { echo '<a href="#top" class="scroll-to-top scroll-to"><img src="' . esc_url(get_template_directory_uri()) . '/assets/icons/chevron-up-outline.svg" alt="Scroll Top" class="icon-small icon-white"></a>'; } ?>
 
 </div> <!--  Overflow  !-->
 
